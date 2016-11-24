@@ -211,6 +211,22 @@ typedef NS_ENUM(NSInteger, RIMethodArgumentType) {
                 Class value = [argument class];
                 [invocation setArgument:&value atIndex:index];
             } break;
+            case RIMethodArgumentTypeCGPoint: {
+                CGPoint value = [argument CGPointValue];
+                [invocation setArgument:&value atIndex:index];
+            } break;
+            case RIMethodArgumentTypeCGSize: {
+                CGSize value = [argument CGSizeValue];
+                [invocation setArgument:&value atIndex:index];
+            } break;
+            case RIMethodArgumentTypeCGRect: {
+                CGRect value = [argument CGRectValue];
+                [invocation setArgument:&value atIndex:index];
+            } break;
+            case RIMethodArgumentTypeUIEdgeInsets: {
+                UIEdgeInsets value = [argument UIEdgeInsetsValue];
+                [invocation setArgument:&value atIndex:index];
+            } break;
                 
             default: break;
         }

@@ -41,6 +41,11 @@
     float f = [[self invoke:@"aFloat"] floatValue];
     NSLog(@"Float: %.2f", f);
     
+    // receive a struct (CGRect for example).
+    CGRect r1 = CGRectMake(0.1, 0.2, 0.3, 0.4);
+    CGRect r2 = [[self invoke:@"justReturnCGRect:" arguments:@[[NSValue valueWithCGRect:r1]]] CGRectValue];
+    NSLog(@"CGRect received: %@", NSStringFromCGRect(r2));
+    
     // public selector
     CGRect rect = [[self invoke:@"aRect"] CGRectValue];
     NSLog(@"rect: %@", NSStringFromCGRect(rect));
