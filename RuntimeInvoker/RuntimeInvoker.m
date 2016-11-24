@@ -306,12 +306,14 @@ typedef NS_ENUM(NSInteger, RIMethodArgumentType) {
         case RIMethodArgumentTypeFloat:  {
             float value;
             [self getReturnValue:&value];
-            returnValue = @(value);
+            __strong id returnValue = @(value);
+            return returnValue;
         } break;
         case RIMethodArgumentTypeDouble:  {
             double value;
             [self getReturnValue:&value];
-            returnValue = @(value);
+            __strong id returnValue = @(value);
+            return returnValue;
         } break;
         case RIMethodArgumentTypeBool: {
             BOOL value;

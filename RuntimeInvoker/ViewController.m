@@ -15,12 +15,31 @@
     return CGRectMake(0, 0, 100, 100);
 }
 
+- (double)aDouble {
+    return 42.42;
+}
+
+- (float)aFloat {
+    return 42.42;
+}
+
+- (CGRect)justReturnCGRect: (CGRect)rect {
+    return rect;
+}
+
 + (UIEdgeInsets)aInsets {
     return UIEdgeInsetsMake(0, 0, 100, 100);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // return double or float.
+    double d = [[self invoke:@"aDouble"] doubleValue];
+    NSLog(@"Double: %.2f", d);
+    
+    float f = [[self invoke:@"aFloat"] floatValue];
+    NSLog(@"Float: %.2f", f);
     
     // public selector
     CGRect rect = [[self invoke:@"aRect"] CGRectValue];
